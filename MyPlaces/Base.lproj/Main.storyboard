@@ -119,7 +119,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="xVP-WF-NPf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="xVP-WF-NPf">
                                         <rect key="frame" x="0.0" y="278" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xVP-WF-NPf" id="qEL-MB-ouR">
@@ -154,7 +154,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="uLu-bc-AyO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="uLu-bc-AyO">
                                         <rect key="frame" x="0.0" y="353" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uLu-bc-AyO" id="4Zx-uv-Fia">
@@ -189,7 +189,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="nsx-YZ-N5I">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="nsx-YZ-N5I">
                                         <rect key="frame" x="0.0" y="428" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nsx-YZ-N5I" id="uYR-8l-cH0">
@@ -235,13 +235,21 @@
                     <navigationItem key="navigationItem" title="New Place" id="Z69-Zs-Gvw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OTf-i1-CIz">
                             <connections>
-                                <segue destination="K6D-Ln-ZQq" kind="unwind" unwindAction="cancelAction:" id="PSf-Hl-v8g"/>
+                                <action selector="cancelAction:" destination="iIO-Qg-hjr" id="kml-Al-R9B"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="V0s-xp-TV0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="V0s-xp-TV0">
+                            <connections>
+                                <segue destination="K6D-Ln-ZQq" kind="unwind" unwindAction="unwindSegue:" id="Wh1-wc-LhO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageOfPlace" destination="06o-Hb-j1k" id="J7I-T1-VGz"/>
+                        <outlet property="placeImage" destination="06o-Hb-j1k" id="J7I-T1-VGz"/>
+                        <outlet property="placeLocation" destination="szG-VK-xCT" id="lSv-xw-gMw"/>
+                        <outlet property="placeName" destination="vaf-ip-aQ1" id="N4Z-KL-2T5"/>
+                        <outlet property="placeType" destination="NpK-Av-SHg" id="Y2L-Oe-Net"/>
+                        <outlet property="saveButton" destination="V0s-xp-TV0" id="l5E-9N-TIH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xF3-C1-pih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
