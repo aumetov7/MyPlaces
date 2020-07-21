@@ -442,6 +442,10 @@
                                     <action selector="goButtonPressed" destination="4Zp-0w-41h" eventType="touchUpInside" id="3To-uc-dND"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKb-KX-bmK">
+                                <rect key="frame" x="28" y="782" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -501,7 +505,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qPl-ne-aXx"/>
-        <segue reference="32P-bE-3w1"/>
+        <segue reference="V3r-of-4PK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
