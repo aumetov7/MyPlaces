@@ -37,16 +37,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         places = realm.objects(Place.self)
         
         // Setup the search controller
-        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
-
+    
     // MARK: - Table view data source
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltered {
             return filteredPlaces.count
@@ -54,18 +53,18 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         return places.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
         let place = isFiltered ? filteredPlaces[indexPath.row] : places[indexPath.row]
-
+        
         cell.nameLabel.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
         cell.imageOfPlace.image = UIImage(data: place.imageData!)
         cell.cosmosView.rating = place.rating
-
+        
         return cell
     }
     
@@ -84,22 +83,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     /*
-    // func for one more actions
-
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let place = places[indexPath.row]
-
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
-            StorageManager.deleteObject(place)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-
-        return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
-    */
-
+     // func for one more actions
+     
+     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+     let place = places[indexPath.row]
+     
+     let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+     StorageManager.deleteObject(place)
+     tableView.deleteRows(at: [indexPath], with: .automatic)
+     }
+     
+     return UISwipeActionsConfiguration(actions: [deleteAction])
+     }
+     */
+    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -117,7 +116,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         newPlaceViewController.savePlace()
         tableView.reloadData()
     }
-
+    
     @IBAction func sortSelection(_ sender: UISegmentedControl) {
         sorting()
     }
